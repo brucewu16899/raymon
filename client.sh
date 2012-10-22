@@ -19,7 +19,7 @@ iface2="{{ iface2 }}"
 ipaddr="{{ ipaddr }}"
 
 #json start
-echo "{"
+echo -n "{"
 
 echo -n "\"Services\": { "
 SERVICE=lighttpd
@@ -46,28 +46,28 @@ echo -n "\" }, "
 echo -n "\"Load\" : \""
 #if $(echo `uptime`  | sed 's/  / /g' | grep -E "min|days" >/dev/null); then echo `uptime` | sed s/,//g | awk '{ printf $10 }'; else echo `uptime` | sed s/,//g| awk '{ printf $8 }'; fi
 uptime | grep -ohe 'load average[s:][: ].*' | awk '{ print $3 }'
-echo "\", "
+echo -n "\", "
 
 #Users:
 echo -n "\"Users logged on\" : \""
 #if $(echo `uptime` | sed 's/  / /g' | grep -E "min|days" >/dev/null); then echo `uptime` | sed s/,//g | awk '{ printf $6 }'; else echo `uptime` | sed s/,//g| awk '{ printf  $4 }'; fi
 uptime | grep -ohe '[0-9.*] user[s,]' | awk '{ print $1 }'
-echo "\", "
+echo -n "\", "
 
 #Uptime 
 echo -n "\"Uptime\" : \""
 #if $(echo `uptime` | sed 's/  / /g' | sed 's/,//g' | grep -E "days" >/dev/null); then echo `uptime` | sed s/,//g | awk '{ printf $3" "$4 }'; else echo `uptime` | sed s/,//g| awk '{ printf  3 }'; fi
 uptime | grep -ohe 'up .*' | sed 's/,//g' | awk '{ print $2" "$3 }'
-echo "\", "
+echo -n "\", "
 
 
 # Memory
 echo -n "\"Free RAM\" : \""
 free -m | grep -v shared | awk '/buffers/ {printf $4 }'
-echo "\", "
+echo -n "\", "
 echo -n "\"Total RAM\" : \""
 free -m | grep -v shared | awk '/Mem/ {printf $2 }'
-echo "\", "
+echo -n "\", "
 
 
 
@@ -75,7 +75,7 @@ echo "\", "
 echo -n "\"IPv4\" : \""
 ip -f inet a | grep "$iface" | awk '/inet/{printf $2 }' 
 #echo $ipaddr
-echo "\","
+echo -n "\","
 
 #hostname
 echo -n "\"Hostname\" : "
@@ -105,4 +105,4 @@ echo -n "\","
 
 #json close
 echo -n "\"JSON\" : \"close\""
-echo; echo " } "
+echo; echo -n " } "
