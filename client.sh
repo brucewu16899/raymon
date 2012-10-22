@@ -1,22 +1,29 @@
 #!/bin/bash
+#Copyright (c) 2012 Remy van Elst
+#Permission is hereby granted, free of charge, to any person obtaining a copy
+#of this software and associated documentation files (the "Software"), to deal
+#in the Software without restriction, including without limitation the rights
+#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#copies of the Software, and to permit persons to whom the Software is
+#furnished to do so, subject to the following conditions:
+#
+#The above copyright notice and this permission notice shall be included in
+#all copies or substantial portions of the Software.
+#
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#THE SOFTWARE.
 
-#define the process name of your webserver
-# 
-#apache:
-# SERVICE='httpd'
-#
-#lighttpd
-# SERVICE='lighttpd'
-#
-# nginx
-# SERVICE='nginx'
-#
-# NEtwork Interface you want to use
-iface="{{ iface }}:0"
-# network interface for traffic mon
-iface2="{{ iface2 }}"
+# Network interface for the IP address
+iface="venet0:0"
+# network interface for traffic monitoring (RX/TX bytes)
+iface2="venet0"
 
-ipaddr="{{ ipaddr }}"
+ipaddr="1.2.3.4"
 
 #json start
 echo -n "{"
@@ -95,7 +102,7 @@ echo -n "\", "
 
 # package updates, uncomment for your distro
 echo -n "\"updatesavail\" : \""
-#debian
+#debian/ubuntu
 echo -n `apt-get -s upgrade | awk '/[0-9]+ upgraded,/ {print $1}'`
 #arch
 #echo -n `pacman -Sy 1>/dev/null 2>&1; pacman -Qu | wc -l`
