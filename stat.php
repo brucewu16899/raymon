@@ -331,10 +331,10 @@ if ($_GET["action"] == "save" && $_GET["key"] == "$historykey") {
     <!-- bar via http://www.joshuawinn.com/quick-and-simple-css-percentage-bar-using-php/ -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <script type="text/javascript" src="git/js/prettify.js"></script>                                   <!-- PRETTIFY -->
-    <script type="text/javascript" src="git/js/kickstart.js"></script>                                  <!-- KICKSTART -->
-    <link rel="stylesheet" type="text/css" href="git/css/kickstart.css" media="all" />                  <!-- KICKSTART -->
-    <link rel="stylesheet" type="text/css" href="git/css/style.css" media="all" />                      <!-- CUSTOM STYLES -->
+    <script type="text/javascript" src="inc/js/prettify.js"></script>                                   <!-- PRETTIFY -->
+    <script type="text/javascript" src="inc/js/kickstart.js"></script>                                  <!-- KICKSTART -->
+    <link rel="stylesheet" type="text/css" href="inc/css/kickstart.css" media="all" />                  <!-- KICKSTART -->
+    <link rel="stylesheet" type="text/css" href="inc/css/style.css" media="all" />                      <!-- CUSTOM STYLES -->
     <meta http-equiv="refresh" content="300">
     <script type="text/javascript">
     <!--
