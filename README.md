@@ -114,6 +114,7 @@ The status server is a php script which fetches the json files from the clients 
 Requirements:
 
 - Webserver with PHP (min. 5.2) and write access to the folder the script is located.
+- PHP option "allow_url_fopen" set to 1 (allow opening of remote files)
 
 Steps:
 
